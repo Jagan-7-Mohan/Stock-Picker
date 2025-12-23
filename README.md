@@ -221,29 +221,33 @@ sudo systemctl start stock-picker
 
 ### Using Docker
 
-Create `Dockerfile`:
-
-```dockerfile
-FROM golang:1.21-alpine AS builder
-WORKDIR /app
-COPY . .
-RUN go mod download
-RUN go build -o stock-picker
-
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates tzdata
-WORKDIR /root/
-COPY --from=builder /app/stock-picker .
-COPY --from=builder /app/.env .
-CMD ["./stock-picker"]
-```
-
 Build and run:
 
 ```bash
 docker build -t stock-picker .
 docker run -d --name stock-picker-bot --env-file .env stock-picker
 ```
+
+Or with environment variables directly:
+
+```bash
+docker run -d --name stock-picker-bot \
+  -e TWILIO_ACCOUNT_SID=your_account_sid \
+  -e TWILIO_AUTH_TOKEN=your_auth_token \
+  -e TWILIO_WHATSAPP_FROM=whatsapp:+14155238886 \
+  -e WHATSAPP_RECIPIENTS=whatsapp:+919876543210 \
+  stock-picker
+```
+
+## Cloud Deployment
+
+For deploying to cloud platforms (Railway, Render, Fly.io, etc.), see **[DEPLOYMENT.md](DEPLOYMENT.md)** for detailed instructions.
+
+**Quick Deploy Options:**
+- 🚂 **Railway** (Recommended) - Easiest setup, free tier available
+- 🎨 **Render** - Free tier, easy GitHub integration
+- 🪰 **Fly.io** - Great for Go apps, global deployment
+- 🐳 **Docker** - Deploy anywhere Docker is supported
 
 ## License
 

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: stock-picker
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_WHATSAPP_FROM
+        sync: false
+      - key: WHATSAPP_RECIPIENTS
+        sync: false
+      - key: TZ
+        value: Asia/Kolkata
+

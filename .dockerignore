@@ -1,0 +1,47 @@
+# Binaries
+stock-picker
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Environment files (will be passed as env vars)
+.env
+.env.local
+
+# Documentation
+README.md
+*.md
+
+# Build artifacts
+dist/
+build/
+
