@@ -1,24 +1,21 @@
-# fly.toml app configuration file generated for stock-picker on 2024-01-01T00:00:00Z
+# fly.toml app configuration file generated for stock-picker-still-water-9392 on 2025-12-23T23:47:24+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "stock-picker"
-primary_region = "bom"  # Mumbai region for IST timezone
+app = 'stock-picker-still-water-9392'
+primary_region = 'bom'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  TZ = "Asia/Kolkata"
+  TZ = 'Asia/Kolkata'
 
-# This is a background worker, not an HTTP service
-# Fly.io will keep the process running continuously
 [processes]
-  app = "./stock-picker"
+  app = './stock-picker'
 
 [[vm]]
-  memory_mb = 256
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 1
-
+  memory_mb = 256
